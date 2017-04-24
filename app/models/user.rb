@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_relationship, source: :user
  
   has_many :favorites
-  has_many :favoritings, through: :favorites, source: :micropost
+  has_many :favoritings, through: :favorites, source: :user
   
   def favorite(other_micropost)
       self.favorites.find_or_create_by(micropost_id: other_micropost.id)
